@@ -1,4 +1,4 @@
-﻿|![Decorative element](Aspose.Words.00949414-5289-41aa-9a10-be9ffae7634a.001.png)|<p>Rapport</p><p></p>|
+<p>Readme</p><p></p>|
 | :- | -: |
 
 
@@ -19,7 +19,6 @@ Interest-Calculator
 
 
 **Sulayman Hosna** 
-DIGIT – GROUPE SF2I 
 10/08/2023
 # **Sommaire**
 [Déploiement d’une instance	3](#_toc143255792)
