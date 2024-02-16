@@ -139,7 +139,7 @@ Description automatically generated](Aspose.Words.00949414-5289-41aa-9a10-be9ffa
 
 
 # <a name="_toc143255793"></a>**SUPPRESSION D’UNE INSTANCE**
-1. Se rendre sur le projet à l’adresse <https://console.firebase.google.com/?hl=fr> 
+1\. Se rendre sur le projet à l’adresse <https://console.firebase.google.com/?hl=fr> 
 
 2\. Cliquer sur la roue crantée en haut à droite, puis sur « Paramètres du projet » 
 
@@ -155,4 +155,4 @@ Description automatically generated](Aspose.Words.00949414-5289-41aa-9a10-be9ffa
 
 4\. Entrer le nom de domaine exact comme « [NOM DU PROJET].nc »
 
-5. Suivre la procédure d’enregistrement avec le gestionnaire de noms de domaine (CloudFlare etc.)
+5\. Suivre la procédure d’enregistrement avec le gestionnaire de noms de domaine (CloudFlare etc.)
