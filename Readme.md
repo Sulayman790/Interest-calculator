@@ -47,7 +47,7 @@ Interest-Calculator
 1. Sélection « Changer de formule » en bas à gauche, puis passer le projet à la formule payante 
    « Blaze ».
    1. Si la personne chargée du déploiement n’est pas la même que la personne possédant le compte de facturation : 
-      1. ` `Cliquer sur la roue crantée en haut à gauche, puis sélectionner « Utilisateurs et autorisations » 
+      1. Cliquer sur la roue crantée en haut à gauche, puis sélectionner « Utilisateurs et autorisations » 
       1. Cliquer sur « Ajouter un membre » 
       1. Inscrire l’adresse mail du compte Google de la personne possédant le compte de facturation
       1. Sélectionner le rôle propriétaire
@@ -130,7 +130,7 @@ Description automatically generated](Aspose.Words.00949414-5289-41aa-9a10-be9ffa
 
 1. Accéder à l’URL fourni en réponse ([ID DU PROJET].web.app
 
-1. ` `S’authentifier avec le compte administrateur précédemment crée (mail : <admin@admin.admin>)
+1. S’authentifier avec le compte administrateur précédemment crée (mail : <admin@admin.admin>)
 
 
 1. Afin d’éviter toute confusion pour le prochain déploiement (déploiement sur le projet d’un autre client par exemple), exécuter la commande suivante :
@@ -139,7 +139,7 @@ Description automatically generated](Aspose.Words.00949414-5289-41aa-9a10-be9ffa
 
 
 # <a name="_toc143255793"></a>**SUPPRESSION D’UNE INSTANCE**
-` `1. Se rendre sur le projet à l’adresse <https://console.firebase.google.com/?hl=fr> 
+1. Se rendre sur le projet à l’adresse <https://console.firebase.google.com/?hl=fr> 
 
 2\. Cliquer sur la roue crantée en haut à droite, puis sur « Paramètres du projet » 
 
