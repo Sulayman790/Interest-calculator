@@ -67,7 +67,7 @@ Interest-Calculator
    1. Cocher « Adresse e-mail/Mot de passe », puis cliquer sur Enregistrer
 
 1. Ajouter l’application
-   1. ` `Cliquer sur la roue crantée située en haut à gauche (à droite de Vue d’ensemble du projet). Puis cliquer sur « Paramètres du projet » 
+   1. Cliquer sur la roue crantée située en haut à gauche (à droite de Vue d’ensemble du projet). Puis cliquer sur « Paramètres du projet » 
    1. Dans la section « Vos applications » située en bas de la page, sélectionner l’icône « </> » 
    1. Ecrire « Capteur » dans le champ « Pseudo de l’application ». La case « Configurez également Firebase Hosting pour cette application. » n’a pas besoin d’être cochée
    1. Cliquer sur « Enregistrer l’application » 
