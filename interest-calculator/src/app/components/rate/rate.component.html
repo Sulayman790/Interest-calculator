@@ -1,0 +1,75 @@
+<div id="component" class="component top-padding-2vh ">
+    <div class="box">
+        <div class="boxStart" > 
+        </div>
+        <div class="boxGrowGrow">
+            <div class="header1" >{{title}}</div>
+        </div>
+        <div class="boxEnd">
+        </div>
+    </div>
+</div>
+
+<div id="component" [ngClass]="{'componentHidden': !componentVisible, 'componentVisible' : componentVisible }" >
+    <div>
+      <div class="containerCenter">
+        <mat-form-field appearance="fill"  style="width: 50%; padding-top: 1em;">
+          <mat-label>Type d'intérêts</mat-label>
+          <mat-select id="selectedInterest"name="selectedInterest" (selectionChange)="subscribeToAll()" [(ngModel)]="selectedRateType" >
+              <mat-option *ngFor="let rate of rateTypes" [value]="rate.value" >
+                  {{rate.viewValue}}
+              </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <p class="containerCenter" >source : &nbsp;
+          <em>
+            <a *ngIf="selectedRateType === rateTypes[0].value || selectedRateType === rateTypes[1].value" href="https://www.banque-france.fr/statistiques/taux-et-cours/les-taux-dinteret-legal">
+              https://www.banque-france.fr/statistiques/taux-et-cours/les-taux-dinteret-legal
+            </a>
+            <a *ngIf="selectedRateType === rateTypes[2].value" href="https://www.euribor-rates.eu/fr/taux-bce/">
+              https://www.euribor-rates.eu/fr/taux-bce/
+            </a>
+            <a *ngIf="selectedRateType === rateTypes[3].value" href="https://www.moneyvox.fr/bourse/eonia.php">
+              https://www.moneyvox.fr/bourse/eonia.php
+            </a>
+          </em>
+        </p>
+      </div>
+
+
+      <div class="boxEnd">
+        <button class="btn no-padding material-icons iconMediumIntermediateSize accentColor" 
+         (click)="openAddRateDialog()" *ngIf="isAdmin" >add_circle</button>
+      </div>
+
+      <table mat-table #skillTable [dataSource]="dataSourceRate" class="mat-elevation-z8 table" matSort>
+        <ng-container matColumnDef="rateType">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Type de Taux </th>
+          <td mat-cell *matCellDef="let rate" class="pointer"> {{rate.type}} </td>
+        </ng-container>
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="startDate"> Date </th>
+          <td mat-cell *matCellDef="let rate" class="pointer"> {{ rate.startDate.toDate() | date: 'dd/MM/yyyy' }} </td>
+        </ng-container>
+        <ng-container matColumnDef="rateValue">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Valeur Taux </th>
+          <td mat-cell *matCellDef="let rate" class="pointer"> {{rate.rateValue}} </td>
+        </ng-container>
+        <ng-container  matColumnDef="actions" *ngIf="isAdmin">
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <td mat-cell *matCellDef="let rate">
+            <button class="btn material-icons iconIntermediateSize accentColor" 
+            (click)="openEditRateDialog(rate)">edit</button>
+            <button class="btn accentColor material-icons iconIntermediateSize" 
+            (click)="deleteRateDialog(rate)">delete</button>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsRate; sticky:true"></tr>
+        <tr mat-row *matRowDef="let rates; columns: displayedColumnsRate;"></tr>
+      </table>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,28 @@
+<div class="containerSpaceBetween">
+    <div class="box"></div>
+    <div class="header1">Création du compte administrateur</div>
+    <div class="boxEnd">
+        <div class="confirmationButton">
+            <button mat-raised-button color="primary" (click)="onSubmit()"
+                [ngClass]="{'hoverBackgroundColor' : firstAdminForm.valid}"
+                [disabled]="!firstAdminForm.valid">Enregistrer</button>
+        </div>
+    </div>
+</div>
+
+<div class="header2">Ce formulaire doit être rempli après la création du compte administrateur sur Firebase. Le compte
+    administrateur doit avoir pour mail : admin@admin.admin . Il faut ensuite coller le UID générée par Firebase et le
+    coller dans le formulaire ci-dessous, puis valider.</div>
+
+<form [formGroup]="firstAdminForm">
+    <div class="form-group row">
+
+        <!-- Champ ID -->
+        <mat-form-field appearance="fill">
+            <mat-label>ID Compte Admin</mat-label>
+            <input matInput id="newAdminID" type="text" formControlName="newAdminID">
+        </mat-form-field>
+
+    </div>
+
+</form>

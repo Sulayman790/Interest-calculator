@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "interest-calculator-cc892": {
+      "hosting": {
+        "interest-calculator": [
+          "interest-calculator-cc892"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "interest-calculator-cc892"
+  }
+}

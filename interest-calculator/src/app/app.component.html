@@ -1,0 +1,33 @@
+<header>
+  <mat-toolbar id="toolbar" color="primary" style="min-height:30px">
+    <div class="boxStart"><img id="dCapteur" src="/assets/dCapteur.png" alt=""></div>
+    <div class="box">
+      <button mat-button *ngIf="signedIn()" [ngStyle]="isSelected('home')" class="headerFont"
+        routerLink="/home">Acceuil</button>
+        <button mat-button *ngIf="signedIn()" [ngStyle]="isSelected('rate')" class="headerFont"
+        routerLink="/rate">Taux d'intérêt</button>
+      <button mat-button *ngIf="signedIn() && isUserAdmin()" [ngStyle]="isSelected('admin')" class="headerFont"
+        routerLink="/admin">Admin</button>
+    </div>
+    <div class="rightButtons">
+      <!-- <div *ngIf="signedIn()" class="welcomeText">Bonjour {{currentEmployee.fullName}}</div> -->
+      <div class="rightButtons" *ngIf="isUserAdmin() && signedIn()">
+      </div>
+      <button  *ngIf="signedIn()" [matMenuTriggerFor]="menu" class="noHoverColor btn no-padding material-icons headerColor iconSmallSize">
+        settings
+      </button>
+      <mat-menu #menu="matMenu" class="profileMenu">
+        <button mat-menu-item (click)="signOut()" >Déconnexion</button>
+      </mat-menu>  
+    </div>
+  </mat-toolbar>
+</header>
+<div style="padding-bottom: 1em;">
+  <router-outlet></router-outlet>
+  
+</div>
+<footer id="footerBar">
+  <div id="version">{{version}}</div>
+  <div id="supportMail"></div>
+  <div class="box"></div>
+</footer>

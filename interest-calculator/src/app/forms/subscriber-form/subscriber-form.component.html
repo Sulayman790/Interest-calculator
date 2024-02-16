@@ -1,0 +1,81 @@
+<div class="margin-general">
+   <div class="containerSpaceBetween ">
+    <div class="box"></div>
+    <div class="header1">{{title}}</div>
+    <!-- Choix du bouton selon si ajout ou modification d'employé -->
+    <div class="boxEnd">
+       <div class="confirmationButton">
+          <button *ngIf="!this.data.adAccount" mat-raised-button color="primary" (click)="onSubmit()"
+             [ngClass]="{'hoverBackgroundColor' : !(!subscriberForm.valid || !arePassWordsValid() || !isEmailValid() || doesThisEmailExist())}"
+             type="submit"
+             [disabled]="!subscriberForm.valid || !arePassWordsValid() || !isEmailValid() || doesThisEmailExist()">{{submitName}}</button>
+          <button *ngIf="this.data.adAccount" mat-raised-button color="primary" (click)="onSubmit()"
+             [ngClass]="{'hoverBackgroundColor' : !(!subscriberForm.valid || !arePassWordsValid() || !isEmailValid() || doesThisEmailExist())}"
+             type="submit" [disabled]="!subscriberForm.valid">{{submitName}}</button>
+       </div>
+    </div>
+   </div>
+   <form [formGroup]="subscriberForm" (ngSubmit)="onSubmit()">
+      <div class="form-group row">
+   
+         <!-- Champ nom -->
+         <mat-form-field appearance="fill" *ngIf="!this.data.adAccount">
+            <mat-label>Nom</mat-label>
+            <input matInput id="lastName" type="text" formControlName="lastName">
+         </mat-form-field>
+   
+         <!-- Champ prénom -->
+         <mat-form-field appearance="fill" *ngIf="!this.data.adAccount">
+            <mat-label for="firstName">Prénom</mat-label>
+            <input matInput id="firstName" type="text" formControlName="firstName">
+         </mat-form-field>
+   
+         <!-- Champ mail -->
+         <mat-form-field appearance="fill" *ngIf="!this.data.adAccount">
+            <mat-label for="email">Adresse mail</mat-label>
+            <input matInput id="email" type="text" formControlName="email">
+         </mat-form-field>
+   
+         <!-- Message d'alerte en cas de mail existant sur Firebase -->
+         <div *ngIf="doesThisEmailExist()" class="containerCenter alert alert-danger">
+            Cette adresse mail existe déjà.
+         </div>
+   
+         <!-- Champ rôle -->
+         <div *ngIf="isAdmin && currentUserId !== newSubscriber._id" class="containerCenter">
+            <mat-form-field appearance="fill">
+               <mat-label>Rôle</mat-label>
+               <mat-select id="admin" formControlName="admin">
+                  <mat-option *ngFor="let option of adminForm" [value]="option.value">
+                     {{option.name}}
+                  </mat-option>
+               </mat-select>
+            </mat-form-field>
+         </div>
+   
+          <!-- Sous-form-group pour pouvoir comparer les mots de passe -->
+         <div *ngIf="this.data.adding" class="form-group row" formGroupName="passwords">
+   
+            <mat-form-field appearance="fill">
+               <mat-label for="password">Mot de passe</mat-label>
+               <input matInput type="password" formControlName="password" title="Please enter your password">
+            </mat-form-field>
+   
+            <mat-form-field appearance="fill">
+               <mat-label for="confirmPassword">Confirmer mot de passe</mat-label>
+               <input matInput type="password" formControlName="confirmPassword" title="Please re-enter your password">
+            </mat-form-field>
+   
+            <!-- Message d'alerte en cas de mots de passe qui ne correspondent pas ou pour la longueur minimale -->
+            <div *ngIf="!arePassWordsValid()" class="containerCenter alert alert-danger">
+               Les mots de passe ne correspondent pas.
+            </div>
+   
+            <div *ngIf="isPasswordTooShort()" class="containerCenter alert alert-danger">
+               La longueur minimale pour le mot de passe est de 6 caractères
+            </div>
+   
+         </div>
+      </div>
+   </form>
+</div>

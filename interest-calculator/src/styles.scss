@@ -1,0 +1,582 @@
+
+#footerBar {
+  background-color: #2195f3;
+  color: white;
+  height: 1.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
+  z-index: 1000;
+}
+
+.rightButtons {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  align-items: center;
+  column-gap: 10em;
+}
+
+.p-inputtext{
+  background-color: #f5f5f5 !important;
+}
+
+.pilotIcon {
+  width: 24px;
+  height: 24px;
+}
+
+@keyframes updown {
+  0% {
+    transform: translateY(0%);
+  }
+
+  50% {
+    transform: translateY(-35%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes updownHalf {
+  0% {
+    transform: translateY(0%);
+  }
+
+  50% {
+    transform: translateY(-17.5%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.editButtonBoucing {
+  animation: updown 1.5s ease-in infinite;
+  color: #1565c0 !important;
+}
+
+.editButtonBoucingHalf {
+  animation: updownHalf 1.5s ease-in infinite;
+  color: #1565c0 !important;
+}
+
+/* Permet de masquer le component pour trigger l'effet de fondu */
+.componentHidden {
+  opacity: 0;
+}
+
+.confirmationButton {
+  display: flex;
+  align-items: center;
+}
+
+.mat-menu-panel.profileMenu {
+  margin-top: 0.5vh;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
+.line-throughOnHover:hover {
+  text-decoration: line-through;
+}
+
+.noLine-throughOnHover:hover {
+  text-decoration: none !important;
+}
+
+.mat-tooltip {
+  font-size: small !important;
+  /* color: black !important; */
+  color: white !important;
+}
+
+.hidden {
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+.hiddenText {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  display: none;
+}
+
+.visible {
+  visibility: visible !important;
+  transition: opacity 0.5s linear !important;
+  opacity: 1 !important;
+}
+
+.display {
+  display: block !important;
+  transition: opacity 0.5s linear !important;
+  opacity: 1 !important;
+}
+
+.displayNone {
+  display: none !important;
+  transition: opacity 0.5s linear !important;
+  opacity: 0 !important;
+}
+
+.tooltip-blue {
+  background: #1565c0;
+  white-space: pre-line !important;
+}
+
+.mat-divider {
+  border-top-width: 1px;
+  border-top-color: rgba(33, 149, 243, 0.75);
+  /* border-right-color: blac; */
+}
+
+.componentVisible {
+  opacity: 1;
+  transition: opacity 0.5s linear;
+}
+
+/* Style du numéro de version en bas à gauche */
+#version {
+  display: flex;
+  justify-content: flex-start;
+  flex: 1;
+  margin-left: 1em;
+}
+
+/* Style de l'adresse mail de support en bas */
+#supportMail {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  font-weight: 500;
+}
+
+/* Largeur par défaut d'un component */
+#component {
+  width: 80%;
+  margin: auto;
+}
+
+/* Couleur primaire */
+.accentColor {
+  color: #2195f3;
+}
+
+.backgroundAccentColor {
+  background-color: #2195f3;
+}
+
+/* Rouge, pour la croix pour le marquage d'absent */
+.red {
+  position: relative;
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+/* Logo capteur */
+#dCapteur {
+  height: auto;
+  width: 75px;
+}
+
+/* Transition de taille des pop-ups */
+.mat-dialog-height-transition {
+  transition-property: height, width;
+  transition-duration: 0.5s, 0.5s;
+}
+
+/* Contenant des tableaux Material */
+.example-container {
+  max-width: 80%;
+  margin: auto;
+}
+
+.example-skill-container {
+  max-width: 80%;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;  
+}
+/* Contenant du tableau lui-même */
+.example-table-container {
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* Surélève le widget de chat */
+.siq_bR {
+  bottom: 25px !important;
+}
+
+.disabled {
+  opacity: 0.5;
+  transition: opacity 0.1s linear !important;
+}
+
+/* Masque la pop-up de Feedback */
+.previewPopFlex {
+  display: none !important;
+}
+
+/* Largeur par défaut d'un tableau */
+table {
+  width: 100%;
+}
+
+.header1 {
+  font-size: xx-large;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.5em;
+  margin: 0.5em;
+}
+
+.header2 {
+  font-size: x-large;
+  font-weight: 400;
+  line-height: 1.5em;
+  text-align: center;
+  margin: 0.5em;
+}
+
+.header3 {
+  font-size: large;
+  font-weight: 400;
+  line-height: 1.5em;
+  text-align: center;
+  margin: 0.5em;
+}
+
+.header4 {
+  font-size: large;
+  font-weight: 400;
+  line-height: 1.5em;
+  text-align: center;
+  white-space: nowrap;
+  width: 150px;
+  margin: 0.5em;
+}
+
+.header4 {
+  font-size: medium;
+  font-weight: 400;
+  line-height: 1.5em;
+  text-align: center;
+  margin: 0.5em;
+}
+
+/* Les box permettent de pousser un élément de chaque côté pour qu'il soit centré quel que soit sa longueur */
+.box {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+* .boxGrow {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.boxStart {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.boxEnd {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#alert {
+  display: flex;
+  justify-content: center;
+}
+
+/* Barre de recherche full-text */
+.searchBar {
+  display: flex;
+  justify-content: center;
+}
+
+/* Tailles d'icônes */
+.iconMediumSize {
+  font-size: 3em;
+}
+
+.iconSmallishMediumSize {
+  font-size: 2.875em;
+}
+
+.iconMediumIntermediateSize {
+  font-size: 2.75em;
+}
+
+.iconIntermediateSizePlusPLus {
+  font-size: 2.625em;
+}
+
+.iconIntermediateSizePlus {
+  font-size: 2.5em;
+}
+
+.iconIntermediateSize {
+  font-size: 2.25em;
+}
+
+.iconInterSmallSize {
+  font-size: 2em;
+}
+
+.iconSmallishSize {
+  font-size: 1.75em;
+}
+
+.iconSmallSize {
+  font-size: 1.5em;
+}
+
+.iconSmallerSize {
+  font-size: 1.25em;
+}
+
+.iconSmallestsize {
+  font-size: 1em;
+}
+
+.fontWeightBold {
+  font-weight: bold;
+}
+
+.headerFont {
+  font-size: large;
+}
+
+.welcomeText {
+  font-size: 16px;
+}
+
+.headerColor {
+  color: white;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.top-padding-25vh {
+  padding-top: 25vh;
+}
+
+.bottom-padding-25vh {
+  padding-bottom: 25vh;
+}
+
+td {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+th {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+.recurringSign {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mat-header-cell {
+  font-size: 15px;
+  color: black;
+}
+
+.mat-sort-header-container {
+  justify-content: center !important;
+}
+
+.top-padding-5vh {
+  padding-top: 5vh;
+}
+
+.top-padding-2-5vh {
+  padding-top: 2.5vh;
+}
+
+.top-margin-1vh {
+  margin-top: 1vh;
+}
+
+.top-margin-2-5vh {
+  margin-top: 2.5vh;
+}
+
+.top-margin-5vh {
+  margin-top: 5vh;
+}
+
+.margin-left-right{
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+.bottom-margin-1vh {
+  margin-bottom: 1vh;
+}
+
+.margin-general {
+  margin: 1em;
+}
+
+.bottom-margin-2vh {
+  margin-bottom: 2vh;
+}
+
+.bottom-margin-5vh {
+  margin-bottom: 5vh;
+}
+
+.bottom-padding-5vh {
+  padding-top: 5vh;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+/* Barre d'outil */
+.mat-toolbar {
+  min-height: 40px !important;
+  height: 40px !important;
+}
+
+/* Container de flexbox */
+.containerCenter {
+  display: flex;
+  justify-content: center;
+}
+
+.containerFlexStart {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.containerFlexEnd {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.containerSpaceEvenly {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.containerSpaceBetween {
+  display: flex;
+  justify-content: space-between;
+}
+
+.containerSpaceBetweenCenter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Couleur des lignes pairs et impairs */
+.mat-row:nth-child(even) {
+  background-color: white;
+}
+
+.mat-row:nth-child(odd) {
+  background-color: #3c8ce834;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif !important;
+}
+
+::ng-deep .btn:focus {
+  box-shadow: none !important
+}
+
+/* Désactive le contour bleu au clic */
+.btn {
+  box-shadow: none !important;
+}
+
+/* Désactive le contour bleu au clic */
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Changement de couleur des boutons en passant la souris dessus (couleur secondaire) */
+.btn:hover {
+  color: #1565c0 !important;
+}
+
+.noHoverColor:hover {
+  color: white !important;
+}
+
+
+.neutralHoverColor:hover {
+  color: rgba(255, 255, 255, 0) !important;
+}
+
+
+.secondColor {
+  color: #1565c0
+}
+
+.hoverColor:hover {
+  color: #1565c0 !important;
+}
+
+.hoverColorRed:hover {
+  color: rgb(160, 1, 1) !important;
+}
+
+.orange {
+  color: orange;
+}
+
+.overflowAuto {
+  overflow: auto;
+}
+
+.hoverBackgroundColor:hover {
+  background-color: #1565c0 !important;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+

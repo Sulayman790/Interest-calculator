@@ -1,0 +1,30 @@
+<div id="loginPage">
+    <div class="header2">Connexion</div>
+    <form [formGroup]="loginForm" (ngSubmit)="authFirebase()">
+      <div class="form-group row" style="width:528px">
+    
+          <mat-form-field appearance="fill">
+            <mat-label>Adresse mail</mat-label>
+            <input matInput  id="contact" type="text"  formControlName="contact">
+          </mat-form-field>
+    
+          <mat-form-field appearance="fill">
+            <mat-label for="password">Mot de passe</mat-label>
+            <input matInput id="password" type="password"  formControlName="password">
+          </mat-form-field>
+    
+      </div>
+    
+        <div *ngIf="!loginFirebaseSuccessful" class="containerCenter alert alert-danger">Ces identifiants ne correspondent à aucun compte</div>
+        
+        <div id="formButtons">
+          <div class="containerCenter"><button mat-raised-button color="primary" class=" hoverBackgroundColor" type="submit" [disabled]="!loginForm.valid || !isEmailValid()">Connexion</button></div>
+          <div id="forgotPassword">
+            <button type="button" mat-raised-button color="primary" class="hoverBackgroundColor"  (click)="openResetPasswordDialog()">Mot de passe oublié</button>
+          </div>
+        </div>
+  
+    </form>
+    
+  </div>
+  

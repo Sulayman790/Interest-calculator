@@ -1,0 +1,33 @@
+#microsoftLogin {
+  display: flex;
+  max-width: 230px;
+  max-height: 95px;
+  width: auto;
+  height: auto;
+}
+  
+#microsoftDiv {
+  height: 95px;
+}
+  
+#forgotPassword{
+  display: flex;
+  justify-content: center;
+  text-decoration: underline;
+  text-decoration-color: #2195f3;
+}
+  
+#formButtons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2vw;
+}
+  
+#loginPage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 75vh;
+}

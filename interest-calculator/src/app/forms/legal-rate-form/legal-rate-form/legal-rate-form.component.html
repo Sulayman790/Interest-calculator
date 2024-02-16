@@ -1,0 +1,59 @@
+<div class="margin-general" [ngClass]="{'componentHidden': !componentVisible, 'componentVisible' : componentVisible }">
+    <div class="containerSpaceBetween">
+        <div class="boxStart"></div>
+        <!-- Change selon ajout ou modification -->
+        <div class="header1">{{this.data.title}}</div>
+        <div class="boxEnd">
+            <div class="confirmationButton">
+                <!-- Bouton de validation -->
+                <div class="containerCenter"><button mat-raised-button color="primary" (click)="onSubmit()"
+                    [ngClass]="{'hoverBackgroundColor' : legalRateForm.valid}" type="submit"
+                    [disabled]="!legalRateForm.valid">{{submitName}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+  <form [formGroup]="legalRateForm" (ngSubmit)="onSubmit()">
+    <div class="form-group row" >
+        <div class="containerCenter">
+            <!-- Formulaire Type d'intérêts -->
+            <mat-form-field appearance="fill"  style="width: 70%;">
+                <mat-label>Type d'intérêts</mat-label>
+                <mat-select id="interet" formControlName="rateTypes">
+                    <mat-option *ngFor="let rate of rateTypes" [value]="rate.value" >
+                        {{rate.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+  
+        <div id="middleForm">
+            <div  class="form" >
+                <mat-form-field appearance="fill">
+                    <mat-label>Date du taux</mat-label>
+                    <input matInput id="dateRate" [matDatepicker]="picker" formControlName="startDate">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker">
+                        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                    </mat-datepicker-toggle>
+                    <mat-datepicker touchUi #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+        
+            <!-- Formulaire de valeurs -->
+            <div  class="form" >
+                <mat-form-field appearance="fill">
+                    <mat-label>Taux</mat-label>
+                    <input matInput id="rate" type="number" formControlName="rateValue">
+                </mat-form-field>
+            </div>
+        </div>
+        <div *ngIf="legalRateForm.get('startDate')?.errors?.['incorrectDate']" class="containerCenter alert alert-danger">
+            Le format de date est incorrect.
+        </div>
+        <div *ngIf="legalRateForm.get('rateValue')?.errors?.['incorrectRateValue']" class="containerCenter alert alert-danger">
+            Le taux en % n'est pas compris entre 0 et 100.
+        </div>
+    </div>
+  </form>
+</div>  

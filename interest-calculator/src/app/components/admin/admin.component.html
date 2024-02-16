@@ -1,0 +1,143 @@
+<div id="component" class="component top-padding-2vh ">
+    <div class="box">
+        <div class="boxStart" > 
+        </div>
+        <div class="boxGrowGrow">
+            <div class="header1" >{{title}}</div>
+        </div>
+        <div class="boxEnd">
+        </div>
+    </div>
+</div>
+
+<div id="component" [ngClass]="{'componentHidden': !componentVisible, 'componentVisible' : componentVisible }" >
+
+  <div class="expanderMissionsList hoverColor pointer" [ngClass]="{'expanded': rateButtonExpanded }" (click)="expandRates()">
+    <div class="box"></div>
+    <div class="header2" [ngClass]="{'buttonExpanded': rateButtonExpanded }">{{rateHeader}}</div>
+    <div class="boxEnd btn no-padding">
+      <div *ngIf="rateExpanded" class="btn no-padding material-icons accentColor iconIntermediateSize"
+        [ngClass]="{'buttonExpanded': rateButtonExpanded }">expand_more
+      </div>
+      <div *ngIf="!rateExpanded" class=" btn no-padding material-icons accentColor iconIntermediateSize"
+        [ngClass]="{'buttonExpanded': rateButtonExpanded }">
+        expand_less
+      </div>
+    </div>
+  </div>
+
+  <div id="skillList" [@openCloseAccordion]="rateExpanded? 'open' : 'closed'" class="no-padding"
+  [ngClass]="{'padding': rateExpanded  }">
+    <div>
+      <div class="containerCenter">
+        <mat-form-field appearance="fill"  style="width: 50%; padding-top: 1em;">
+          <mat-label>Type d'intérêts</mat-label>
+          <mat-select id="selectedInterest"name="selectedInterest" (selectionChange)="subscribeToAll()" [(ngModel)]="selectedRateType" >
+              <mat-option *ngFor="let rate of rateTypes" [value]="rate.value" >
+                  {{rate.viewValue}}
+              </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="boxEnd">
+        <button class="btn no-padding material-icons iconMediumIntermediateSize accentColor" 
+         (click)="openAddRateDialog()" *ngIf="isAdmin" >add_circle</button>
+      </div>
+
+      <table mat-table #skillTable [dataSource]="dataSourceRate" class="mat-elevation-z8 table" matSort>
+        <ng-container matColumnDef="rateType">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Type de Taux </th>
+          <td mat-cell *matCellDef="let rate" class="pointer"> {{rate.type}} </td>
+        </ng-container>
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="startDate"> Date </th>
+          <td mat-cell *matCellDef="let rate" class="pointer"> {{ rate.startDate.toDate() | date: 'dd/MM/yyyy' }} </td>
+        </ng-container>
+        <ng-container matColumnDef="rateValue">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Valeur Taux </th>
+          <td mat-cell *matCellDef="let rate" class="pointer"> {{rate.rateValue}} </td>
+        </ng-container>
+        <ng-container  matColumnDef="actions" *ngIf="isAdmin">
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <td mat-cell *matCellDef="let rate">
+            <button class="btn material-icons iconIntermediateSize accentColor" 
+            (click)="openEditRateDialog(rate)">edit</button>
+            <button class="btn accentColor material-icons iconIntermediateSize" 
+            (click)="deleteRateDialog(rate)">delete</button>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsRate; sticky:true"></tr>
+        <tr mat-row *matRowDef="let rates; columns: displayedColumnsRate;"></tr>
+      </table>
+    </div>
+  </div>
+
+
+  <div class="expanderTasksList hoverColor pointer" [ngClass]="{'expanded': subscribersButtonExpanded }" (click)="expandSubscribers()">
+    <div class="box"></div>
+    <div class="header2" [ngClass]="{'buttonExpanded': subscribersButtonExpanded }">{{subscriberHeader}}</div>
+    <div class="boxEnd btn no-padding">
+      <div *ngIf="subscribersExpanded" class="btn no-padding material-icons accentColor iconIntermediateSize"
+        [ngClass]="{'buttonExpanded': subscribersButtonExpanded }">expand_more
+      </div>
+      <div *ngIf="!subscribersExpanded" class=" btn no-padding material-icons accentColor iconIntermediateSize"
+        [ngClass]="{'buttonExpanded': subscribersButtonExpanded }">
+        expand_less
+      </div>
+    </div>
+  </div>
+
+  <div id="taskList" [@openCloseAccordion]="subscribersExpanded? 'open' : 'closed'" class="no-padding"
+    [ngClass]="{'padding': subscribersExpanded  }" >
+    <div>
+      <div class="containerCenter" style="padding-top: 1em;">
+        <mat-form-field appearance="fill" [style.width.px]=350 style="text-align: center;">
+          <mat-label>Rechercher</mat-label>
+          <input matInput [(ngModel)]="filter" (keyup)="applyFilter($event)" #input>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="boxEnd">
+      <button class="btn no-padding material-icons iconMediumIntermediateSize accentColor" 
+       (click)="openAddSubscriberDialog()" *ngIf="isAdmin">add_circle</button>
+    </div>
+
+    <table mat-table [dataSource]="dataSourceSubscriber" class="mat-elevation-z8 table" matSort>
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom </th>
+        <td mat-cell *matCellDef="let subscriber" class="pointer">
+          {{subscriber.lastName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Prénom </th>
+        <td mat-cell *matCellDef="let subscriber" class="pointer" >
+          {{subscriber.firstName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+        <td mat-cell *matCellDef="let subscriber" class="pointer">
+          {{subscriber.email}} </td>
+      </ng-container>
+      <ng-container matColumnDef="dernière connexion">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Dernière Utilisation </th>
+        <td mat-cell *matCellDef="let subscriber" class="pointer">
+          {{subscriber.displayLastConnection}} </td>
+      </ng-container>
+      <ng-container matColumnDef="actions" *ngIf="isAdmin">
+        <th mat-header-cell *matHeaderCellDef > Actions </th>
+        <td mat-cell *matCellDef="let subscriber">
+          <button class="btn material-icons iconIntermediateSize accentColor"  
+          (click)="openEditSubscriberDialog(subscriber)"> edit</button>
+          <button class="btn accentColor material-icons iconIntermediateSize" 
+          (click)="archiveSubscriber(subscriber)"> delete</button>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumnsSubscriber; sticky:true"></tr>
+      <tr mat-row *matRowDef="let employee; columns: displayedColumnsSubscriber; "></tr>
+    </table>
+  </div>
+</div>
+
+
+
