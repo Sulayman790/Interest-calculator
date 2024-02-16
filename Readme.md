@@ -21,20 +21,11 @@ Interest-Calculator
 **Sulayman Hosna** 
 10/08/2023
 # **Sommaire**
-[Déploiement d’une instance	3](#_toc143255792)
+[Déploiement d’une instance	](#_toc143255792)
 
-[Suppression d’une instance	8](#_toc143255793)
+[Suppression d’une instance	](#_toc143255793)
 
-[Redirection de noms de domaine	9](#_toc143255794)
-
-[Guide d’utilisation du logiciel	10](#_toc143255795)
-
-[1.	Faire un calcul des intérêts de retard	10](#_toc143255796)
-
-[2.	Consulter, ajouter ou modifier un taux d’intérêt	13](#_toc143255797)
-
-[3.	Gestion des Utilisateurs (admin)	14](#_toc143255798)
-
+[Redirection de noms de domaine	](#_toc143255794)
 
 
 
